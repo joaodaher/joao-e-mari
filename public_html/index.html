@@ -134,7 +134,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <div class="couple-logo">
-                            <h1><a href="#home"><img src="images/logo.svg" height="100px"></img></a></h1>
+                            <h1><a href="#home"><img src="images/logo.svg" height="100px"></a></h1>
                         </div>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse navbar-right navigation-holder">
@@ -142,11 +142,12 @@
                         <ul class="nav navbar-nav">
                             <li><a href="#home">Home</a></li>
                             <li><a href="#couple">O Casal</a></li>
-                            <li><a href="#story">História</a></li>
+<!--                            <li><a href="#story">História</a></li>-->
                             <li><a href="#events">Eventos</a></li>
                             <li><a href="#people">Padrinhos</a></li>
                             <li><a href="#gallery">Fotos</a></li>
                             <li><a href="#rsvp">RSVP</a></li>
+                            <li><a href="#gifts">Presentes</a></li>
                         </ul>
                     </div><!-- end of nav-collapse -->
                 </div><!-- end of container -->
@@ -356,7 +357,7 @@
                                 <p>
                                     Contamos com a presença de vocês no final da tarde para celebrar conosco nosso matrimômio
                                     em uma linda chácara.
-                                    Teremos manobristas e seguranças para cuidar do seu veículo, então fique tranquilo e aproveite o momento!
+                                    Teremos estacionamento e seguranças para cuidar do seu veículo, então fique tranquilo e aproveite o momento!
                                 </p>
                                 <a class="see-location-btn popup-gmaps" href="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14928.640830868722!2d-46.643756!3d-20.703718!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1d31b03b32af3828!2sVila+Calango!5e0!3m2!1sen!2sbr!4v1547302327960">
                                     Ver Mapa <i class="fa fa-angle-right"></i>
@@ -824,14 +825,11 @@
                         <p>Queremos que esse dia seja especial para todos, então favor confirmar sua presença até 15 de Outubro de 2019.</p>
                         <form id="rsvp-form" class="form validate-rsvp-form row" method="post">
                             <div class="col col-sm-6">
-                                <input type="text" name="name" class="form-control" placeholder="Seu Nome*">
+                                <input type="text" name="name" class="form-control" placeholder="Seu Nome">
                             </div>
                             <div class="col col-sm-6">
-                                <input type="email" name="email" class="form-control" placeholder="Seu E-mail*">
-                            </div>
-                            <div class="col col-sm-6">
-                                <select class="form-control" name="guest" >
-                                    <option disabled selected>Quantidade de convidados*</option>
+                                <select class="form-control" name="guest_adult" >
+                                    <option disabled selected>Quantidade de adultos</option>
                                     <option>Apenas eu</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -841,8 +839,14 @@
                                     <option>7</option>
                                 </select>
                             </div>
-                            <div class="col col-sm-12">
-                                <textarea class="form-control" name="notes" placeholder="Sua Mensagem*"></textarea>
+                            <div class="col col-sm-6">
+                                <select class="form-control" name="guest_kid" >
+                                    <option disabled selected>Quantidade de crianças (até 6 anos)</option>
+                                    <option>Nenhuma</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                </select>
                             </div>
                             <div class="col col-sm-12 submit-btn">
                                 <button type="submit" class="submit">Confirmar</button>
@@ -917,7 +921,7 @@
 
 
         <!-- start gift-registration-section -->
-        <section class="gift-registration-section section-padding">
+        <section class="gift-registration-section section-padding" id="gifts">
             <div class="container">
                 <div class="row">
                     <div class="col col-xs-12">

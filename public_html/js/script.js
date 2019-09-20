@@ -224,7 +224,7 @@
     -------------------------------------------*/
     function preloader() {
         if($('.preloader').length) {
-            $('.preloader').delay(2000).fadeOut(500, function() {
+            $('.preloader').delay(1000).fadeOut(500, function() {
 
                 //active wow
                 wow.init();
@@ -533,13 +533,12 @@
                     required: true,
                     minlength: 2
                 },
-                email: "required",
 
-                guest: {
+                guest_adult: {
                     required: true
                 },
 
-                events: {
+                guest_kid: {
                     required: true
                 }
 
@@ -547,22 +546,25 @@
 
             messages: {
                 name: "Escreva seu nome",
-                email: "Escreva seu e-mail",
-                guest: "Escolha quantos convidados irão",
+                guest_adult: "Escolha quantos adultos irão",
+                guest_kid: "Escolha quantas crianças irão",
             },
 
             submitHandler: function (form) {
                 $("#loader").css("display", "inline-block");
                 $.ajax({
                     type: "POST",
-                    url: "mail.php",
-                    data: $(form).serialize(),
+                    url: "https://us-central1-joao-e-mari.cloudfunctions.net/rsvp_mail",
+                    // data: $(form).serialize(),
+                    data: JSON.stringify(getFormData($("form").serializeArray())),
+                    contentType: "application/json",
+                    dataType: "json",
                     success: function () {
                         $( "#loader").hide();
                         $( "#success").slideDown( "slow" );
                         setTimeout(function() {
                         $( "#success").slideUp( "slow" );
-                        }, 3000);
+                        }, 10000);
                         form.reset();
                     },
                     error: function() {
@@ -570,7 +572,7 @@
                         $( "#error").slideDown( "slow" );
                         setTimeout(function() {
                         $( "#error").slideUp( "slow" );
-                        }, 3000);
+                        }, 4000);
                     }
                 });
                 return false; // required to block normal submit since you used ajax
@@ -579,6 +581,16 @@
         });
     }
 
+    function getFormData(data) {
+        var unindexed_array = data;
+        var indexed_array = {};
+
+        $.map(unindexed_array, function(n, i) {
+            indexed_array[n['name']] = n['value'];
+        });
+
+        return indexed_array;
+    }
 
     /*------------------------------------------
         = TOGGLE MUSUC BIX
